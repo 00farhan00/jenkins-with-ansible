@@ -1,27 +1,27 @@
-pipeline {
-  agent { 
-  label 'ansible'
-  }
-  
-  environment {
-   AWS_EC2_PRIVATE_KEY=credentials('ec2-private-key') 
-  }
-  
-  stages {
+pipeline{
+
+ agent{
+    label 'ansible-Node'
+    }
     
-    //Get the Code from GitHub Repo
-    stage('CheckOutCode'){
-      steps{
-        git branch: 'master', credentialsId: 'aeeaa4ad-45b4-4c30-9401-586ac501a9bb', url: 'https://github.com/MithunTechnologiesDevOps/jenkins-with-ansible.git'
-      }
-    }
-     
-    //Run the playbook
-    stage('RunPlaybook') {
-      steps {
-        sh "ansible-playbook -i inventory/walmart.hosts --private-key=$AWS_EC2_PRIVATE_KEY playbooks/installTomcat.yml --ssh-common-args='-o StrictHostKeyChecking=no'"
-      }
-    }
+  /*environment {
+   AWS_EC2_PRIVATE_KEY=credentials('ec2-privatekey') 
+  }*/
   
-  }//stages closing
-}//pipeline closing
+
+ stages{
+    
+    stage('checkoutcode'){
+    steps{ git credentialsId: '63dafce7-0bd3-4898-8b6e-4ba004efb42c', url: 'https://github.com/00farhan00/jenkins-with-ansible.git'
+    }
+    }
+    
+    /*stage('RunAnsiblelPlaybook'){
+    steps{ 
+    sh "ansible-playbook -i inventory/walmart.hosts --private-key=$AWS_EC2_PRIVATE_KEY playbooks/installTomcat.yml --ssh-common-args='-o StrictHostKeyChecking=no' "
+    }
+    }*/
+    
+}//stagesclosing
+
+}//pipelineclosing
