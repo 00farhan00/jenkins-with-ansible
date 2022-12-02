@@ -5,4 +5,4 @@
 
 #65.2.70.246 ansible_user=ec2-user ansible_port=22 
 #13.233.115.170 ansible_user=ec2-user ansible_port=22 
-172.31.1.114 ansible_user=ec2-user ansible_port=22 ansible_ssh_private_key_file=/home/ec2-user/jenkinsansiblenode/hosts.pem
+172.31.40.215 ansible_user=ec2-user ansible_port=22
