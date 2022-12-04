@@ -6,3 +6,4 @@
 #65.2.70.246 ansible_user=ec2-user ansible_port=22 
 #13.233.115.170 ansible_user=ec2-user ansible_port=22 
 172.31.40.215 ansible_user=ec2-user ansible_port=22
+172.31.45.70 
